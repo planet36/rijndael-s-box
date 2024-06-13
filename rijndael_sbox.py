@@ -40,7 +40,7 @@ def mod_int_as_polynomial(x, m):
 # The output value is 8-bits
 def rijndael_multiplication(x, y):
     z = multiply_ints_as_polynomials(x, y)
-    m = int('100011011', 2)
+    m = 0b100011011
     return mod_int_as_polynomial(z, m)
 
 
@@ -83,8 +83,8 @@ def affine_transformation(A, x, b):
 # of the function are both 8-bit integers
 def rijndael_sbox(x):
     xinv = rijndael_inverse(x)
-    A = int('1111100001111100001111100001111110001111110001111110001111110001', 2)
-    b = int('01100011', 2)
+    A = 0b1111100001111100001111100001111110001111110001111110001111110001
+    b = 0b01100011
     return affine_transformation(A, xinv, b)
 
 
