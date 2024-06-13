@@ -22,10 +22,10 @@ def multiply_ints_as_polynomials(x: int, y: int) -> int:
 def mod_int_as_polynomial(x: int, m: int) -> int:
     m_bit_len = m.bit_length()
     while True:
-        nbx = x.bit_length()
-        if nbx < m_bit_len:
+        d = x.bit_length() - m_bit_len
+        if d < 0:
             return x
-        mshift = m << (nbx - m_bit_len)
+        mshift = m << d
         x ^= mshift
 
 
