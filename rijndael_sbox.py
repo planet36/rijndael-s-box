@@ -73,10 +73,10 @@ def affine_transformation(A: int, x: int, b: int) -> int:
 # The input value x and the output value
 # of the function are both 8-bit integers
 def rijndael_sbox(x: int) -> int:
-    xinv = rijndael_inverse(x)
+    x_inv = rijndael_inverse(x)
     A = 0b1111100001111100001111100001111110001111110001111110001111110001
     b = 0b01100011
-    return affine_transformation(A, xinv, b)
+    return affine_transformation(A, x_inv, b)
 
 
 # Print the Rijndael S-Box as a table of 16 rows,
