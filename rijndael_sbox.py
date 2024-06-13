@@ -91,12 +91,11 @@ def rijndael_sbox(x: int) -> int:
 # Print the Rijndael S-Box as a table of 16 rows,
 # with 16 values per row (total of 256 values)
 def print_rijndael_sbox():
-    for row in range(16):
-        for col in range(16):
-            x = 16 * row + col
-            hexstring = format(rijndael_sbox(x), "02x")
-            print(hexstring, end=' ')
-        print()
+    for x in range(0, 256):
+        s = rijndael_sbox(x)
+        print(f'{s:02x}', end=' ')
+        if x % 16 == 15:
+            print()
 
 
 print_rijndael_sbox()
