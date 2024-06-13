@@ -1,7 +1,8 @@
-# The Rijndael S-Box
 
 # pylint: disable=invalid-name
 # pylint: disable=missing-function-docstring
+
+'''The Rijndael S-Box'''
 
 # x and y are nonnegative integers
 # Their associated binary polynomials are multiplied.
