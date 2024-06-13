@@ -54,12 +54,7 @@ def rijndael_inverse(x: int) -> int:
 # x, y are nonnegative integers
 # considered as vectors of bits
 def dot_product(x: int, y: int) -> int:
-    z = x & y
-    dot = 0
-    while z != 0:
-        dot ^= z & 1
-        z >>= 1
-    return dot
+    return (x & y).bit_count() % 2
 
 
 # A is a 64-bit integer that represents a
