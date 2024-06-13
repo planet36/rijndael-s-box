@@ -25,8 +25,7 @@ def mod_int_as_polynomial(x: int, m: int) -> int:
         d = x.bit_length() - m_bit_len
         if d < 0:
             return x
-        mshift = m << d
-        x ^= mshift
+        x ^= m << d
 
 
 # x,y are 8-bits
