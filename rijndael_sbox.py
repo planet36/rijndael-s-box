@@ -41,11 +41,11 @@ def rijndael_multiplication(x: int, y: int) -> int:
 # The output value is 8-bits
 # Here we find the inverse just through a brute force search.
 def rijndael_inverse(x: int) -> int:
-    if x == 0:
-        return 0
     for y in range(1, 256):
         if rijndael_multiplication(x, y) == 1:
             return y
+    # No multiplicative inverse
+    return 0
 
 
 # x, y are nonnegative integers
