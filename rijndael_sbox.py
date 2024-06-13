@@ -21,11 +21,9 @@ def multiply_ints_as_polynomials(x: int, y: int) -> int:
 # m is a positive integer
 def mod_int_as_polynomial(x: int, m: int) -> int:
     m_bit_len = m.bit_length()
-    while True:
-        d = x.bit_length() - m_bit_len
-        if d < 0:
-            return x
+    while (d := x.bit_length() - m_bit_len) >= 0:
         x ^= m << d
+    return x
 
 
 # x,y are 8-bits
