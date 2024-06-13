@@ -17,11 +17,7 @@ def multiply_ints_as_polynomials(x: int, y: int) -> int:
 # Returns the number of bits that are used
 # to store the non-negative integer x.
 def number_bits(x: int) -> int:
-    nb = 0
-    while x != 0:
-        nb += 1
-        x >>= 1
-    return nb
+    return x.bit_length()
 
 
 # x is a nonnegative integer
