@@ -14,18 +14,12 @@ def multiply_ints_as_polynomials(x: int, y: int) -> int:
     return z
 
 
-# Returns the number of bits that are used
-# to store the non-negative integer x.
-def number_bits(x: int) -> int:
-    return x.bit_length()
-
-
 # x is a nonnegative integer
 # m is a positive integer
 def mod_int_as_polynomial(x: int, m: int) -> int:
-    nbm = number_bits(m)
+    nbm = m.bit_length()
     while True:
-        nbx = number_bits(x)
+        nbx = x.bit_length()
         if nbx < nbm:
             return x
         mshift = m << (nbx - nbm)
