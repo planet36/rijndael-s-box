@@ -63,7 +63,7 @@ def dot_product(x: int, y: int) -> int:
 # This function calculates A * x + b
 def affine_transformation(A: int, x: int, b: int) -> int:
     y = 0
-    for i in reversed(range(8)):
+    for i in range(8):
         row = (A >> 8 * i) & 0xff
         bit = dot_product(row, x)
         y ^= (bit << i)
