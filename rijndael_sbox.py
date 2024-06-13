@@ -1,4 +1,4 @@
-# The Rijndael Sbox
+# The Rijndael S-Box
 
 
 # x and y are nonnegative integers
