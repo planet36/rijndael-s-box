@@ -1,9 +1,9 @@
 # The Rijndael Sbox
 
 
-# x and y are nonnegative integers 
-# Their associated binary polynomials are multiplied. 
-# The associated integer to this product is returned. 
+# x and y are nonnegative integers
+# Their associated binary polynomials are multiplied.
+# The associated integer to this product is returned.
 def multiply_ints_as_polynomials(x, y):
     z = 0
     while x != 0:
@@ -14,7 +14,7 @@ def multiply_ints_as_polynomials(x, y):
     return z
 
 
-# Returns the number of bits that are used 
+# Returns the number of bits that are used
 # to store the non-negative integer x.
 def number_bits(x):
     nb = 0
@@ -29,7 +29,7 @@ def number_bits(x):
 def mod_int_as_polynomial(x, m):
     nbm = number_bits(m)
     while True:
-        nbx = number_bits(x) 
+        nbx = number_bits(x)
         if nbx < nbm:
             return x
         mshift = m << (nbx - nbm)
@@ -55,15 +55,15 @@ def rijndael_inverse(x):
             return y
 
 
-# x, y are nonnegative integers 
+# x, y are nonnegative integers
 # considered as vectors of bits
 def dot_product(x, y):
     z = x & y
-    dot = 0  
+    dot = 0
     while z != 0:
         dot ^= z & 1
         z >>= 1
-    return dot 
+    return dot
 
 
 # A is a 64-bit integer that represents a
@@ -73,7 +73,7 @@ def dot_product(x, y):
 def affine_transformation(A, x, b):
     y = 0
     for i in reversed(range(8)):
-        row = (A >> 8 * i) & 0xff 
+        row = (A >> 8 * i) & 0xff
         bit = dot_product(row, x)
         y ^= (bit << i)
     return y ^ b
@@ -88,7 +88,7 @@ def rijndael_sbox(x):
     return affine_transformation(A, xinv, b)
 
 
-# Print the Rijndael S-Box as a table of 16 rows, 
+# Print the Rijndael S-Box as a table of 16 rows,
 # with 16 values per row (total of 256 values)
 def print_rijndael_sbox():
     for row in range(16):
@@ -96,7 +96,7 @@ def print_rijndael_sbox():
             x = 16 * row + col
             hexstring = format(rijndael_sbox(x), "02x")
             print(hexstring, end=' ')
-        print()        
+        print()
 
 
 print_rijndael_sbox()
