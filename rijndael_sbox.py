@@ -72,8 +72,8 @@ def affine_transformation(A: int, x: int, b: int) -> int:
 # of the function are both 8-bit integers
 def rijndael_sbox(x: int) -> int:
     x_inv = rijndael_inverse(x)
-    A = 0b1111100001111100001111100001111110001111110001111110001111110001
-    b = 0b01100011
+    A = 0b11111000_01111100_00111110_00011111_10001111_11000111_11100011_11110001
+    b = 0b01100011 # 0x63
     return affine_transformation(A, x_inv, b)
 
 
