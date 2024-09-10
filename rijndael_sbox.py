@@ -74,7 +74,8 @@ def rijndael_sbox(x: int) -> int:
     x_inv = rijndael_inverse(x)
     A = 0b11111000_01111100_00111110_00011111_10001111_11000111_11100011_11110001
     b = 0b01100011 # 0x63
-    return affine_transformation(A, x_inv, b)
+    y = affine_transformation(A, x_inv, b)
+    return y
 
 
 # Print the Rijndael S-Box as a table of 16 rows,
@@ -88,3 +89,29 @@ def print_rijndael_sbox():
 
 
 print_rijndael_sbox()
+
+
+print()
+
+
+# The input value x and the output value
+# of the function are both 8-bit integers
+def rijndael_inv_sbox(x: int) -> int:
+    A = 0b11111000_01111100_00111110_00011111_10001111_11000111_11100011_11110001
+    b = 0b01100011 # 0x63
+    y = affine_transformation(A, x, b)
+    y_inv = rijndael_inverse(y)
+    return y_inv
+
+
+# Print the Rijndael Inverse S-Box as a table of 16 rows,
+# with 16 values per row (total of 256 values)
+def print_rijndael_inv_sbox():
+    for x in range(0, 256):
+        s = rijndael_inv_sbox(x)
+        print(f'{s:02x}', end=' ')
+        if x % 16 == 15:
+            print()
+
+
+print_rijndael_inv_sbox()
