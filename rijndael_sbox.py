@@ -34,7 +34,7 @@ def mod_int_as_polynomial(x: int, m: int) -> int:
 # The output value is 8-bits
 def rijndael_multiplication(x: int, y: int) -> int:
     z = multiply_ints_as_polynomials(x, y)
-    m = 0b100011011
+    m = 0b100011011 # 0x11b
     return mod_int_as_polynomial(z, m)
 
 
